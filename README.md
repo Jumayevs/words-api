@@ -1,5 +1,5 @@
 
-## Word App
+## Word Api
 
 ### Prerequisites
 
@@ -10,7 +10,7 @@
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/jumayevltd/word-app.git
+   git clone https://github.com/jumayevs/words-api.git
    cd word-app
    ```
 
@@ -30,7 +30,8 @@
 
 ## Usage
 - Create dictionary,
-- Add branch to your dictionary.
-- Add your category to branch
+- Add section to your dictionary.
+- Add your category to section
 - Add word to category
+
 
