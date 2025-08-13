@@ -1,6 +1,3 @@
-// .env config
-require("dotenv").config();
-
 const express = require("express");
 const mongoose = require("mongoose");
 const fileUpload = require("express-fileupload");
@@ -16,7 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(fileUpload());
 app.use(express.static("static"));
-app.use(cookieParser({}));
+app.use(cookieParser());
 
 // routes
 app.use("/api/v1/auth", require("./routes/auth.route"));
@@ -31,11 +28,12 @@ app.use(errorMiddleware);
 // port
 const PORT = process.env.PORT || 8000;
 
-// start the application
 
+// start the application
 const start = async () => {
   await connectDB();
   app.listen(PORT, () => logger(`App is live on http://localhost:${PORT}`));
 };
 
 start();
+
