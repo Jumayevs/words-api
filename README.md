@@ -1,5 +1,5 @@
 
-## Word Api
+## Words Api
 
 ### Prerequisites
 
@@ -33,5 +33,6 @@
 - Add section to your dictionary.
 - Add your category to section
 - Add word to category
+
 
 
