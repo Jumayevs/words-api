@@ -3,7 +3,11 @@ const userModel = require("../models/user.model");
 const UserDto = require("../dto/user.dto");
 const tokenService = require("./token.service");
 const BaseError = require("../errors/base.error");
+
+
 class AuthService {
+  
+  // POST/auth/register
   async register(data) {
     const existUser = await userModel.findOne({ phone: data.phone });
     if (existUser) {
@@ -20,6 +24,8 @@ class AuthService {
 
     return { userDto, ...tokens };
   }
+
+  // POST/auth/login
   async login(data) {
     const { phone, password } = data;
     const user = await userModel.findOne({ phone });
@@ -40,10 +46,13 @@ class AuthService {
 
     return { userDto, ...tokens };
   }
+  
+  // POST/auth/logout
   async logout(refreshToken) {
     return await tokenService.removeToken(refreshToken);
   }
 
+  // GET/auth/refresh
   async refresh(refreshToken) {
     const userData = tokenService.validateRefreshToken(refreshToken);
     const token = await tokenService.findToken(refreshToken);
@@ -61,3 +70,4 @@ class AuthService {
 }
 
 module.exports = new AuthService();
+
